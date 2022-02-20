@@ -1,6 +1,6 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import MainContext from "./context/MainContext";
+//import MainContext from "./context/MainContext";
 import Navigation from './components/Nav'
 import LoginPage from "./Pages/LoginPage";
 import MainPage from "./Pages/MainPage"

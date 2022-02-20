@@ -9,7 +9,7 @@ function Navigation() {
        
                     <Link to="/login">Login</Link>
                     <Link to="/registerUser">Create User</Link>
-                    <Link to="/createorderpage">Create Order</Link>
+                    <Link to="/createOrder">Create Order</Link>
 
         </div>
         );

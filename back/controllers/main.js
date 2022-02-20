@@ -1,7 +1,7 @@
 const userSchema = require("../shemas/userSchema")
 const orderSchema = require("../shemas/orderSchema")
 const {nanoid} = require('nanoid')
-const { validate } = require("../shemas/userSchema")
+//const { validate } = require("../shemas/userSchema")
 
 module.exports = { 
     registerUser: async (req, res) => {
@@ -17,37 +17,35 @@ module.exports = {
         user.email = email
         user.password = password1
         user.secretKey = nanoid()
-
         await user.save()
-
         res.send({msg:"User created"})
 
     },
 
     loginUser: async (req, res) => {
         const {email, password} = req.body
-
         const validateUser = await userSchema.findOne({email})
 
         if(!!validateUser){
             if(validateUser.password === password){
-                const skey = validateUser.secretKey
                 console.log(validateUser);
                 res.send({validateUser})
             }
         }
     },
     createOrder: async (req, res) => {
-        const {orderName, product, quantity} = req.body
-
+        const {orderName, product, quantity, secretKey} = req.body
         const order = new orderSchema()
         order.orderName = orderName
         order.product = product
         order.quantity = quantity
         order.secretKey = secretKey
-
         await order.save()
-
         res.send({success: true})
     },
+
+    getAllOrders: async (req, res) => {
+        const orders = await orderSchema.find()
+        res.send({orders})
+    }
 }

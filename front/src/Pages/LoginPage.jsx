@@ -6,6 +6,7 @@ import {useNavigate} from "react-router-dom"
 function LoginPage() {
 
   const [error, setError] = useState(null)
+  const [getUser, setUser] = useState()
   const nav = useNavigate()
 
   const emailRef = useRef()
@@ -28,11 +29,9 @@ function LoginPage() {
     const data = await res.json()
 
     if(data) {
-      console.log(data);
-
       localStorage.setItem('secret', data.validateUser.secretKey)
       localStorage.setItem('email', data.validateUser.email)
-      console.log('user login success');
+      setUser(validateUser)
       nav("/createorder")
     } else {
       setError(data.message)

@@ -1,9 +1,14 @@
 import React from 'react'
 
-function orderCard() {
+
+function OrderCard({order}) {
   return (
-    <div>orderCard</div>
+    <div className='d-flex cartItem'>
+      <p>{order.orderName}</p>
+      <p>{order.product}</p>
+      <p>{order.quantity}</p>
+    </div>
   )
 }
 
-export default orderCard
+export default OrderCard
