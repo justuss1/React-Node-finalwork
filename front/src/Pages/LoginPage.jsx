@@ -5,7 +5,7 @@ import {useNavigate} from "react-router-dom"
 
 function LoginPage() {
 
-  const {error, setError} = useState(null)
+  const [error, setError] = useState(null)
   const nav = useNavigate()
 
   const emailRef = useRef()
@@ -28,12 +28,12 @@ function LoginPage() {
     const data = await res.json()
     console.log(data);
 
-    if(data.message) {
+    if(data) {
 
       console.log('user login success');
       nav("/createorder")
     } else {
-      setError('error')
+      setError(data.message)
     }
   }
   
