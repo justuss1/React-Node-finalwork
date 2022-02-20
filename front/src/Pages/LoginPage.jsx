@@ -26,10 +26,12 @@ function LoginPage() {
     }
     const res = await fetch("http://localhost:4000/loginUser", options)
     const data = await res.json()
-    console.log(data);
 
     if(data) {
+      console.log(data);
 
+      localStorage.setItem('secret', data.validateUser.secretKey)
+      localStorage.setItem('email', data.validateUser.email)
       console.log('user login success');
       nav("/createorder")
     } else {

@@ -1,4 +1,5 @@
 const userSchema = require("../shemas/userSchema")
+const orderSchema = require("../shemas/orderSchema")
 const {nanoid} = require('nanoid')
 const { validate } = require("../shemas/userSchema")
 
@@ -31,12 +32,22 @@ module.exports = {
         if(!!validateUser){
             if(validateUser.password === password){
                 const skey = validateUser.secretKey
-                console.log(skey);
+                console.log(validateUser);
                 res.send({validateUser})
-              
             }
-
         }
+    },
+    createOrder: async (req, res) => {
+        const {orderName, product, quantity} = req.body
 
-    }
+        const order = new orderSchema()
+        order.orderName = orderName
+        order.product = product
+        order.quantity = quantity
+        order.secretKey = secretKey
+
+        await order.save()
+
+        res.send({success: true})
+    },
 }
