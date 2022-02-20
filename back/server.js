@@ -7,7 +7,7 @@ app.use(cors())
 app.use(express.json())
 app.listen(4000)
 
-mongoose.connect("mongodb+srv://adminas1:ponasadminas@cluster0.qqies.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+mongoose.connect("mongodb+srv://Justinas:cGgUHDFs306FYRyw@cluster0.erwoa.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
     .then(res => {
         console.log('connection good')
     }).catch(e => {
