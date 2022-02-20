@@ -3,7 +3,8 @@ import OrderForm from "../components/OrderForm"
 
 function OrderPage() {
   return (
-    <div>OrderPage
+    <div className='d-flex column'>
+      OrderPage
       <OrderForm/>
 
     </div>

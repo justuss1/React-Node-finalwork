@@ -47,5 +47,21 @@ module.exports = {
     getAllOrders: async (req, res) => {
         const orders = await orderSchema.find()
         res.send({orders})
+    },
+
+    getOrder: async (req, res) => {
+        const {id} = req.params
+        const order = await orderSchema.findOne({_id: id})
+        res.send({order})
+    },
+
+    deleteOrder: async (req, res) => {
+        const {id} = req.params
+        await orderSchema.findOneAndDelete({_id: id})
+
+        res.send({success: true})
     }
+
+
+
 }

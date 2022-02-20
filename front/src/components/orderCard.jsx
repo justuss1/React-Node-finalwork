@@ -1,9 +1,16 @@
 import React from 'react'
+import {useNavigate} from "react-router-dom";
 
 
-function OrderCard({order}) {
+
+const OrderCard = ({order}) => {
+  const nav = useNavigate()
+  function navToPage() {
+    nav("/order/"+order._id)
+  }
+
   return (
-    <div className='d-flex cartItem'>
+    <div onClick={navToPage} className='d-flex cartItem'>
       <p>{order.orderName}</p>
       <p>{order.product}</p>
       <p>{order.quantity}</p>

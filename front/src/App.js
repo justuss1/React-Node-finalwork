@@ -6,8 +6,11 @@ import LoginPage from "./Pages/LoginPage";
 import MainPage from "./Pages/MainPage"
 import CreateUserPage from "./Pages/CreateUserPage"
 import OrderPage from "./Pages/OrderPage"
+import SingleOrderPage from './Pages/SingleOrderPage';
 
 import {BrowserRouter, Routes, Route} from "react-router-dom";
+
+
 
 function App() {
 
@@ -26,6 +29,8 @@ function App() {
         <Route path={'/login'} element={<LoginPage/>}/>
 
         <Route path={'/createorder'} element={<OrderPage/>}/>
+
+        <Route path={'/order/:id'} element={<SingleOrderPage/>} /> 
 
         </Routes>
       </BrowserRouter>

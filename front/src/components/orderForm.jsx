@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState }from 'react'
 import OrderCard from './OrderCard'
 
+
 function OrderForm() {
 
   const [error, setError] = useState(null)
@@ -54,6 +55,10 @@ function OrderForm() {
       })
     }, [])
 
+    function orderUpdate(){
+      
+    }
+
   return (
     <div className='d-flex column'>
       
@@ -63,15 +68,15 @@ function OrderForm() {
       <input type='button' value="Submit Order" onClick={createOrder} />
       <h3>{error}</h3>
       
-      <div>
+      <div className='d-flex column'> 
       Orders:
-        <div className='d-flex cartItem'>
+        <div className=' d-flex cartItem'>
           <h6>Order Name</h6>
           <h6>Product</h6>
           <h6>Quantity</h6>
         
         </div>
-         {getOrders.map((x, i) => <OrderCard key={x._id} order={x} />)}
+         {getOrders.map((x, i) => <OrderCard key={x._id} order={x} onClick={orderUpdate}/>)}
       </div>
     </div>
   )
